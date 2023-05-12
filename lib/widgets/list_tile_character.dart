@@ -11,7 +11,7 @@ class ListTileCharacter extends StatelessWidget {
   late double width;
   @override
   Widget build(BuildContext context) {
-    if(character.thumbnailPath!.toLowerCase().contains('image_not_available')) return Container();
+    //if(character.thumbnailPath!.toLowerCase().contains('image_not_available')) return SizedBox();
     heigth = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     // print('heigth: ${MediaQuery.of(context).size.height}'); //Pixel 6 PRO 867.42857

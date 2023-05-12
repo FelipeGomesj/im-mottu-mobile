@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:mottu_marvel/screens/home_page_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,14 +13,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+          textSelectionTheme: TextSelectionThemeData(
+            cursorColor: Colors.red
+          )
+      ),
       debugShowCheckedModeBanner: false,
       initialRoute: '/home',
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/home':
-            return MaterialPageRoute(builder: (_) => const  HomePageScreen());
+            return MaterialPageRoute(builder: (_) => const HomePageScreen());
           default:
-            return MaterialPageRoute(builder: (_) => const  HomePageScreen());
+            return MaterialPageRoute(builder: (_) => const HomePageScreen());
         }
       },
     );

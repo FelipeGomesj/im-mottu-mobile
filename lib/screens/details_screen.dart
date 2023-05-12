@@ -98,12 +98,11 @@ class DetailsScreen extends StatelessWidget {
                   )
                 : Container(),
             16.hg,
-            Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  comic != null ? comic!.description! : character!.description!,
-                  style: TextStyle(color: Colors.grey, fontSize: 16),
-                )),
+            comic != null && comic?.description == null ?  Container() : Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(comic != null   ? comic!.description! : character!.description!,
+                style: TextStyle(color: Colors.grey, fontSize: 16),
+              ),),
             //character!.name!.toLowerCase() == "adam warlock" ?  Image.asset('images/adam-warlock.gif') : Container()
           ],
         ),

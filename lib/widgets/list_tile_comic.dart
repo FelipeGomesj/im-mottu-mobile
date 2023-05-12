@@ -5,14 +5,15 @@ import 'package:mottu_marvel/screens/details_screen.dart';
 import 'package:mottu_marvel/tools/dimension_extension.dart';
 
 class ListTileComic extends StatelessWidget {
-   ListTileComic({super.key, required this.comic});
+   ListTileComic({super.key, required this.comic, required this.seeAll});
 
+  final bool seeAll;
   final Comics comic;
   late double heigth;
   late double width;
   @override
   Widget build(BuildContext context) {
-    if (comic.thumbnailUrl!.contains('image_not_available')) return Container();
+    //if (comic.thumbnailUrl!.contains('image_not_available')) return Container();
     heigth = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     // print('heigth: ${MediaQuery.of(context).size.height}'); //Pixel 6 PRO 867.42857
@@ -23,8 +24,9 @@ class ListTileComic extends StatelessWidget {
         children: [
           Container(
             //150
-              height:  heigth * 0.3,
-              margin: EdgeInsets.only(bottom: 16, left: 8),
+              height:  comic.thumbnailUrl!.contains('image_not_available') ?  heigth * 0.2 : heigth * 0.3,
+                                              //16
+              margin: EdgeInsets.only(bottom: seeAll == true?  80 : 16, left: 8),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                   child: Image.network(comic.thumbnailUrl!))),
